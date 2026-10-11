@@ -1,0 +1,143 @@
+:root {
+  --bg: #f3f5f9;
+  --card: #cec8c8;
+  --btn: #f3efef;
+  --text: #2b2e33;
+  --muted: #445068;
+  --border: #d9deea;
+  --accent: #2e6bd6;
+  --good: #1f9d55;
+  --good-bg: #e3f6ea;
+  --bad: #d64545;
+  --bad-bg: #fbe7e7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151d;
+    --card: #1b2030;
+    --btn: #1b2030;
+    --text: #e8ebf3;
+    --muted: #9aa3b8;
+    --border: #2d3550;
+    --accent: #6a9bff;
+    --good: #4cc47f;
+    --good-bg: #17392a;
+    --bad: #ff7b7b;
+    --bad-bg: #432024;
+  }
+}
+
+* { box-sizing: border-box; }
+
+/* An element with the hidden attribute must stay hidden, even if a class sets display. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* The card is the whole page: full width, full height, content spread across it. */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px clamp(16px, 5vw, 64px);
+  background: var(--card);
+}
+
+/* The quiz and result areas take all the remaining height and center their content. */
+#quiz,
+#result {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 { margin: 0; text-align: center; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h2 { margin: 0 0 8px; }
+.subtitle { margin: 6px 0 20px; text-align: center; color: var(--muted); }
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+  color: var(--muted);
+}
+.stats strong { color: var(--text); }
+
+.progress {
+  height: 8px;
+  margin: 10px 0 24px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+#progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.word { margin: 0; text-align: center; font-size: clamp(2.6rem, 9vw, 6rem); font-weight: 700; }
+.meaning { margin: 4px 0 clamp(22px, 5vh, 56px); text-align: center; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.6rem); min-height: 1.5em; }
+
+.answers { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 2vw, 24px); }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 14px 8px;
+  color: var(--text);
+  background: var(--btn);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.15s, background 0.15s;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button:disabled { cursor: default; }
+
+.answers button {
+  padding: clamp(14px, 4vh, 40px) 8px;
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-weight: 600;
+}
+.answers button.correct { border-color: var(--good); background: var(--good-bg); }
+.answers button.wrong { border-color: var(--bad); background: var(--bad-bg); }
+
+kbd {
+  margin-left: 4px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+.feedback { min-height: 2.6em; margin: 16px 0 8px; text-align: center; font-weight: 600; font-size: clamp(1rem, 2vw, 1.4rem); }
+.feedback.good { color: var(--good); }
+.feedback.bad { color: var(--bad); }
+.feedback .tip { display: block; margin-top: 4px; font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+
+.primary {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.primary:hover:not(:disabled) { opacity: 0.9; }
+
+#result-text { font-size: 1.1rem; }
+#mistakes ul { margin: 8px 0 16px; padding-left: 20px; }
+#mistakes li { margin: 4px 0; }
+#mistakes .ar { color: var(--muted); }

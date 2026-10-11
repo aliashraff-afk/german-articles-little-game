@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German Articles little game: der, die, das</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>der · die · das</h1>
+    <p class="subtitle">Pick the right article for each German noun.</p>
+
+    <div class="stats">
+      <span>Question <strong id="q-number">1</strong>/<span id="q-total">10</span></span>
+      <span>Score <strong id="score">0</strong></span>
+      <span>Streak <strong id="streak">0</strong></span>
+      <span>Best <strong id="best">0</strong></span>
+    </div>
+    <div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
+
+    <section id="quiz">
+      <p class="word" id="word"></p>
+      <p class="meaning" id="meaning" lang="ar" dir="rtl"></p>
+
+      <div class="answers">
+        <button type="button" data-article="der">der <kbd>1</kbd></button>
+        <button type="button" data-article="die">die <kbd>2</kbd></button>
+        <button type="button" data-article="das">das <kbd>3</kbd></button>
+      </div>
+
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+      <button type="button" id="next" class="primary" hidden>Next</button>
+    </section>
+
+    <section id="result" hidden>
+      <h2>Round finished</h2>
+      <p id="result-text"></p>
+      <div id="mistakes"></div>
+      <button type="button" id="restart" class="primary">Play again</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
