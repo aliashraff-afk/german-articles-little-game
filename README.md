@@ -4,9 +4,9 @@ A small browser game for practicing German noun articles. Each round has 10 rand
 
 
 ![Screenshot]
-(<img width="1200" height="798" alt="image" src="https://github.com/user-attachments/assets/f40097dc-639e-498a-a0ab-3ae5ae20afb5" />
+<img width="1200" height="798" alt="image" src="https://github.com/user-attachments/assets/f40097dc-639e-498a-a0ab-3ae5ae20afb5" />
 
-)
+
 
 ## Features
 
